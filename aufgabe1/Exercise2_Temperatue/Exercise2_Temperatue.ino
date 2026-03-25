@@ -21,18 +21,18 @@ void loop() {
 
   IMU.readTemperature(current_temp);
   Serial.println(current_temp);
-  if (current_temp > 32)
+  if (current_temp - 10 > 32)
   {
     digitalWrite(LEDR, LOW);
     digitalWrite(LEDG, LOW);
     digitalWrite(LEDB, LOW);
     digitalWrite(LEDR, HIGH); 
-  } else if (current_temp < 20)
+  } else if (current_temp - 10 < 20)
   {
     digitalWrite(LEDR, LOW);
     digitalWrite(LEDG, LOW);
-    di1italWrite(LEDB, LOW);
-    digitalWrite(LEDR, HIGH); 
+    digitalWrite(LEDB, LOW);
+    digitalWrite(LEDB, HIGH); 
   } 
   else 
   {

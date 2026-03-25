@@ -56,14 +56,16 @@ void loop()
   {
     IMU.readTemperature(temperature);
   }
-  if (temperature < 20 || temperature > 32)
-  {
-    alert = true;
-  }
+
   roll = filter.getRoll();
   pitch = filter.getPitch();
   heading = filter.getYaw();
-  
+
+  if (temperature - 10 < 20 || temperature - 10 > 32 || pitch < 80 || pitch > 100)
+  {
+    alert = true;
+  }
+
   if (counter % 500 == 0)
   {
     Serial.print("Orientation: ");
