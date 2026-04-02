@@ -47,8 +47,6 @@ madgwick_filter.begin(IMU.gyroscopeSampleRate());
   }
 }
 
-  
-
 
 void loop()
 {
@@ -63,7 +61,6 @@ void loop()
   IMU.readAcceleration(ax, ay, az);
   IMU.readGyroscope(gx, gy, gz);
 
-  // convert from raw data to gravity and degrees/second units
   madgwick_filter.updateIMU(gx, gy, gz, ax, ay, az);
   if (IMU.temperatureAvailable())
   {
@@ -87,7 +84,7 @@ void loop()
       sum += abs(sampleBuffer[i]);
     }
      avg = sum / samplesRead;
-    if (avg > 1000)
+    if (avg > 600)
     {
       alert = true;
     }
@@ -99,12 +96,8 @@ void loop()
     Serial.print("Mic avg: ");
     Serial.print(avg);
     Serial.print(" ");
-    Serial.print("Orientation: ");
-    Serial.print(heading);
-    Serial.print(" ");
-    Serial.print(pitch);
-    Serial.print(" ");
-    Serial.println(roll);
+    Serial.print("Pitch ");
+    Serial.println(pitch);
     // Print the temperature to the serial monitor
     Serial.print("Temperature: ");
     Serial.print(temperature);

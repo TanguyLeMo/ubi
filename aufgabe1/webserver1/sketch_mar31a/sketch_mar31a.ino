@@ -2,8 +2,8 @@
 #include <WiFiNINA.h>
 
 ///////please enter your sensitive data in the Secret tab/arduino_secrets.h
-char ssid[] = "meh";        // your network SSID (name)
-char pass[] = "noneofyourbusiness";    // your network password (use for WPA, or use as key for WEP)
+char ssid[] = "";        // your network SSID (name)
+char pass[] = "";    // your network password (use for WPA, or use as key for WEP)
 int keyIndex = 0;                 // your network key index number (needed only for WEP)
 
 int status = WL_IDLE_STATUS;
@@ -99,19 +99,19 @@ void loop() {
           digitalWrite(LEDR, HIGH);
         }
         if (currentLine.endsWith("GET /RL")) {
-          digitalWrite(LEDR, LOW);              
+          digitalWrite(LEDR, LOW);
         }
         if (currentLine.endsWith("GET /GH")) {
-          digitalWrite(LEDG, HIGH);              
+          digitalWrite(LEDG, HIGH);
         }
         if (currentLine.endsWith("GET /GL")) {
-          digitalWrite(LEDG, LOW);           
+          digitalWrite(LEDG, LOW);
         }
         if (currentLine.endsWith("GET /BH")) {
-          digitalWrite(LEDB, HIGH);              
+          digitalWrite(LEDB, HIGH);
         }
         if (currentLine.endsWith("GET /BL")) {
-          digitalWrite(LEDB, LOW);             
+          digitalWrite(LEDB, LOW);
         }
       }
     }
