@@ -1,7 +1,7 @@
 #include <WiFiNINA.h>
 
 const int buttonPin = 2;
-int buttonState = 0;
+PinStatus buttonState = LOW;
 void setup() {
   Serial.begin(9600);
   pinMode(LEDR, OUTPUT);
@@ -11,23 +11,31 @@ void setup() {
 }
 
 void loop() {
+  static PinStatus previous = LOW;
+
   if(Serial.available() > 0){
-    char receved = Serial.read();
-    if(receved == '1'){
+    char received = Serial.read();
+
+    if(received == '1'){
       digitalWrite(LEDR, HIGH);
       digitalWrite(LEDG, HIGH);
       digitalWrite(LEDB, HIGH);
     }
-    else if(receved == '0'){
+    else if(received == '0'){
       digitalWrite(LEDR, LOW);
       digitalWrite(LEDG, LOW);
       digitalWrite(LEDB, LOW);
     }
   }
   buttonState = digitalRead(buttonPin);
-  if(buttonState == HIGH){
-    Serial.write('1');
-  } else {
-    Serial.write('0');
+  if (buttonState != previous) {
+    if(buttonState == LOW ){
+      Serial.print('1');
+      Serial.print('\n');
+    } else {
+      Serial.print('0');
+      Serial.print('\n');
+    }
+    previous = buttonState;
   }
 }
