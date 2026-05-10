@@ -17,9 +17,11 @@ void loop() {
   int current_temp = 0;
   static int prev_temp = 0;
   IMU.readTemperature(current_temp);
+  current_temp -= 5;
   if(current_temp != prev_temp){
     Serial.println(current_temp);
   }
   prev_temp = current_temp; 
+  delay(250);
 }
 

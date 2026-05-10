@@ -1,0 +1,154 @@
+[
+    {
+        "id": "c927362d68add659",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ed7c8348414311ec",
+        "type": "mqtt in",
+        "z": "c927362d68add659",
+        "name": "",
+        "topic": "Temperature",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "83491dcb86728a11",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "173da96db7ddbfdd"
+            ]
+        ]
+    },
+    {
+        "id": "173da96db7ddbfdd",
+        "type": "debug",
+        "z": "c927362d68add659",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "9099e171432b9c5f",
+        "type": "mqtt out",
+        "z": "c927362d68add659",
+        "name": "",
+        "topic": "Temperature",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "83491dcb86728a11",
+        "x": 450,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f135f80369126a85",
+        "type": "serial in",
+        "z": "c927362d68add659",
+        "name": "",
+        "serial": "97e5f6cab6d346a8",
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "9099e171432b9c5f"
+            ]
+        ]
+    },
+    {
+        "id": "83491dcb86728a11",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "ceba69ff8df24d9d8da388cf27fcb070.s1.eu.hivemq.cloud",
+        "port": "8883",
+        "tls": "59eaf4a8931eeb3e",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "97e5f6cab6d346a8",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM5",
+        "serialbaud": "9600",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "0"
+    },
+    {
+        "id": "59eaf4a8931eeb3e",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "ceba69ff8df24d9d8da388cf27fcb070",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "efc2c6a59575946d",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-node-serialport": "2.0.3"
+        }
+    }
+]
